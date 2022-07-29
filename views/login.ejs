@@ -1,0 +1,55 @@
+<header>
+    <nav class="header">
+        <h1>DSYSTEM</h1>
+        <div class="links">
+        <a href="#">Beginnig</a>
+        <a href="#">services</a>
+        <a href="#">about</a>
+        </div>
+        <div class="actions">
+        <a href="/login">Sing In</a>
+        <a href="/register" id="su">Sing Up</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="formulario">
+        <div class="titulo"><h2>SING IN</h2></div>
+        <form id="form" name="login" method="post" action="/login" class="form">
+            <!-- username -->
+            <label for="documento_id">Documento de identidad</label>
+            <input
+                id="Usuario_login"
+                class="input"
+                type="text"
+                name="documento_id"
+                placeholder="Ingrese su documento de identidad "
+                required
+            />
+
+            <!-- password -->
+            <label for="Contraseña">Contraseña</label>
+            <input
+                id="Contraseña_login"
+                class="input"
+                type="password"
+                name="Contraseña"
+                placeholder="Ingrese su Contraseña"
+                required
+            />
+
+            <!-- ingreso-->
+            <input type="submit" id="submit" value="Ingresar" class="submit" />
+            <a href="/recovery" class="link"> Olvidaste tu Contraseña?</a>  
+            <a href="/register" class="link"> No tienes una cuenta?</a>
+        </form>
+    </div>
+    <img src="/assets/logo_blanco.png" alt="" />
+</main>
+<script src="/js/login.js"></script>
+
+<%- contentFor('title') %>
+Health-Cloud Login
+
+<%- contentFor('styles') %> 
+<link rel="stylesheet" href="/css/login.css">

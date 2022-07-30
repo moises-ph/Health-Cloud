@@ -8,9 +8,10 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/', async (req, res, next)=>{
-    const { userId, name, lastname, password, age, gender, email, userType, docType} = req.body;
+    const { userId, name, lastname, password, age, gender, email, userType, docType } = req.body;
 
-    const password_crypt = await bcrypt.hash(password, 10);
+    console.log(password);
+    const password_crypt = await bcrypt.hash(password, 20);
 
     var validation = [false, false];
 
@@ -19,21 +20,34 @@ router.post('/', async (req, res, next)=>{
 
     let sql2 = "INSERT INTO datos_usuario values (?,?,?,?,?,?,?,?,?,?)";
     let query2 = format(sql2, [userId, 0,'','','','',0,'','','2000/01/01'])
+    
+    let sql3 = "SELECT * FROM registro WHERE R_num_documento = ?";
+    let query3 = format(sql3, [userId]);
 
-    let DB_request = await new Promise((resolve, reject)=>{
-        db.getConnection((err, connection)=>{
+    db.getConnection((err, connection)=>{
+        if(err) throw err;
+        connection.query(query3, (err, result)=>{
             if(err) throw err;
-            connection.query(query, (err,result)=>{
-                if(err) throw err;
-                validation[0] = true;
-            });
-            connection.query(query2, (err, result)=>{
-                if(err) throw err;
-                validation[1] = true;
-                validation[0]&&validation[1]? res.json({status: 'ok', message: 'Usuario registrado'}): res.json({status: 'error', message: 'Error al registrar usuario'});
-            })
+            if(result.length > 0){
+                res.json({
+                    status: 'error',
+                    message: 'El usuario ya existe'
+                })
+            }
+            else{
+                connection.query(query, (err, result)=>{
+                    if (err) throw err;
+                    connection.query(query2, (err, result)=>{
+                        if (err) throw err;
+                        res.json({
+                            status: 'ok',
+                            message: 'Usuario registrado'
+                        })
+                    });
+                })
+            }
         })
-    });
+    })
 });
 
 module.exports = router;

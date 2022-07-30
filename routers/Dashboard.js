@@ -6,4 +6,8 @@ const {db, format} = require('../database/database');
 
 router.get('/', (req, res)=>{
   res.render('dashboard');
+});
+
+router.put('/', (req, res)=>{
+  
 })

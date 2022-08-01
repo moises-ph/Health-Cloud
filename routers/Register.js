@@ -3,6 +3,32 @@ const router = express.Router();
 const {db, format} = require('../database/database');
 const bcrypt = require('bcrypt');
 
+//Funciones
+
+const consultar = (query) =>{
+    return new Promise((resolve, reject)=>{
+        db.getConnection((err, connection)=>{
+            if (err) throw err;
+            connection.query(query, (err, rows)=>{
+                if (err) throw err;
+                resolve(rows);
+            });
+        });
+    });
+}
+
+const registrar = (query) =>{
+    return new Promise((resolve, reject)=>{
+        db.getConnection((err, connection)=>{
+            if (err) throw err;
+            connection.query(query, (err, rows)=>{
+                if (err) throw err;
+                resolve(true);
+            });
+        });
+    });
+}
+
 router.get('/', (req, res)=>{
     res.render('register');
 })
@@ -24,30 +50,29 @@ router.post('/', async (req, res, next)=>{
     let sql3 = "SELECT * FROM registro WHERE R_num_documento = ?";
     let query3 = format(sql3, [userId]);
 
-    db.getConnection((err, connection)=>{
-        if(err) throw err;
-        connection.query(query3, (err, result)=>{
-            if(err) throw err;
-            if(result.length > 0){
-                res.json({
-                    status: 'error',
-                    message: 'El usuario ya existe'
-                })
-            }
-            else{
-                connection.query(query, (err, result)=>{
-                    if (err) throw err;
-                    connection.query(query2, (err, result)=>{
-                        if (err) throw err;
-                        res.json({
-                            status: 'ok',
-                            message: 'Usuario registrado'
-                        })
-                    });
-                })
-            }
+    let exists = await consultar(query3).then(result=> result);
+    if(exists === true){
+        res.json({
+            status: 'error',
+            message: 'Usuario ya existe'
         })
-    })
+    }
+    else{
+        validation[0] = await registrar(query).then(result=> result);
+        validation[1] = await registrar(query2).then(result=> result);
+        if(validation[0] && validation[1]){
+            res.json({
+                status: 'ok',
+                message: 'Usuario registrado'
+            })
+        }
+        else{
+            res.json({
+                status: 'error',
+                message: 'Error al registrar usuario'
+            })
+        }
+    }
 });
 
 module.exports = router;

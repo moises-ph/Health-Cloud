@@ -6,12 +6,14 @@ const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
-const {db} = require('./database/database');
+const { mongoose } = require('./database/database');
 
 // Import the routes
 
 const loginRouter = require('./routers/Login');
 const registerRouter = require('./routers/Register');
+const DashboardRouter = require('./routers/Dashboard');
+const LogoutRouter = require('./routers/Logout');
 
 // Start the app
 
@@ -48,13 +50,11 @@ app.get('/', (req, res)=>{
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/dashboard', DashboardRouter);
+app.use('/logout', LogoutRouter)
 
 
 // Start the server
 app.listen(port, ()=>{
-    db.getConnection((err, connection)=>{
-        if (err) throw err;
-        console.log(`Connected to the database`);
-    })
-    console.log(`Server running on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 })

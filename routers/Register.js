@@ -1,78 +1,71 @@
 const express = require('express');
 const router = express.Router();
-const {db, format} = require('../database/database');
 const bcrypt = require('bcrypt');
-
-//Funciones
-
-const consultar = (query) =>{
-    return new Promise((resolve, reject)=>{
-        db.getConnection((err, connection)=>{
-            if (err) throw err;
-            connection.query(query, (err, rows)=>{
-                if (err) throw err;
-                resolve(rows);
-            });
-        });
-    });
-}
-
-const registrar = (query) =>{
-    return new Promise((resolve, reject)=>{
-        db.getConnection((err, connection)=>{
-            if (err) throw err;
-            connection.query(query, (err, rows)=>{
-                if (err) throw err;
-                resolve(true);
-            });
-        });
-    });
-}
+const { UserSchema, UserDataSchema } = require('../models/users');
 
 router.get('/', (req, res)=>{
     res.render('register');
 })
 
-router.post('/', async (req, res, next)=>{
-    const { userId, name, lastname, password, age, gender, email, userType, docType } = req.body;
-
-    console.log(password);
-    const password_crypt = await bcrypt.hash(password, 20);
-
-    var validation = [false, false];
-
-    let sql = "INSERT INTO registro(R_num_documento, R_nombres, R_apellidos, R_edad, R_genero, R_email, R_contraseña, R_tipo_de_usuario, R_tipo_de_documento) values(?,?,?,?,?,?,?,?,?)";
-    let query = format(sql, [userId, name, lastname, age, gender, email, password_crypt, userType, docType]);
-
-    let sql2 = "INSERT INTO datos_usuario values (?,?,?,?,?,?,?,?,?,?)";
-    let query2 = format(sql2, [userId, 0,'','','','',0,'','','2000/01/01'])
-    
-    let sql3 = "SELECT * FROM registro WHERE R_num_documento = ?";
-    let query3 = format(sql3, [userId]);
-
-    let exists = await consultar(query3).then(result=> result);
-    if(exists === true){
-        res.json({
-            status: 'error',
-            message: 'Usuario ya existe'
-        })
+router.post('/', async (req, res)=>{
+    if(req.session.logged){
+        res.redirect('/dashboard');
     }
     else{
-        validation[0] = await registrar(query).then(result=> result);
-        validation[1] = await registrar(query2).then(result=> result);
-        if(validation[0] && validation[1]){
+        const { userId, name, lastname, password, age, gender, email, userType, docType } = req.body;
+
+        const password_crypt = await bcrypt.hash(password, 10);
+
+        const find = await UserSchema.findOne({num_documento: userId});
+
+        if(find){
             res.json({
-                status: 'ok',
-                message: 'Usuario registrado'
+                status: 'Error',
+                message: 'Usuario ya existe'
             })
         }
         else{
-            res.json({
-                status: 'error',
-                message: 'Error al registrar usuario'
+            const UserTask = new UserSchema({
+                num_documento: parseInt(userId),
+                name,
+                lastname,
+                age: parseInt(age),
+                gender,
+                email,
+                password: password_crypt,
+                user_type: userType,
+                doc_type: docType
+            });
+
+            const UserDataTask = new UserDataSchema({
+                num_documento: parseInt(userId),
+                phone:  0,
+                address: '0',
+                city: '0',
+                state: '0',
+                civil_status: '0',
+                stratus: '0',
+                date_of_birth: '0',
+                ocupation: '0',
+                regim: '0',
+                blood_type: '0',
+                height: '0',
+                weight: 0,
+                allergies: 0,
+                diseases: '0',
+                surgeries: '0'
             })
+
+            await UserTask.save();
+            await UserDataTask.save();
+            console.log(UserTask);
+            res.json({
+                status: 'ok',
+                message: 'Usuario registrado'
+            });
         }
     }
+
 });
 
 module.exports = router;

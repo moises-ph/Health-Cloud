@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap');
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+}
+
+header {
+  margin-bottom: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.reform label {
+  margin: 0;
+}
+
+label {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+form {
+  width: 92vw;
+  background-color: white;
+  color: black;
+  border-radius: 30px;
+}
+
+.reform {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  height: 45vh;
+  padding-left: 3%;
+}
+
+.reform label input {
+  width: 50%;
+  background-color: transparent;
+  color: gray;
+  border: 3px solid rgba(149, 149, 149, 0.809);
+}
+
+.links {
+  display: flex;
+  width: 30vw;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  color: white;
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#close {
+  width: 13vw;
+}
+
+#cerrar_sesion {
+  background-color: white;
+  color: black;
+  width: 80%;
+  font-weight: 900;
+  font-size: 1rem;
+  height: 5vh;
+  border-radius: 15px;
+}
+
+.em label .col input {
+  margin-bottom: 5%;
+}
+
+.em {
+  padding-left: 3%;
+  width: 63vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  width: 20vw;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+img {
+  background: transparent;
+  width: 8%;
+  height: 8%;
+  margin: 1% 1% 1% 1%;
+}
+
+span {
+  display: none;
+}
+
+.elsub {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.submit {
+  height: 2rem;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid black;
+  background-color: transparent;
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    width: 90vw;
+  }
+  main {
+    padding: 0;
+    margin: 0;
+    width: 85vw;
+  }
+  form {   
+    width: 85vw;
+  }
+  .reform {
+    display: flex;
+    flex-direction: column;
+    width: 83vw;
+    height: 60vh;
+  }
+  img {
+    width: 20vw;
+    height: 8vh;
+  }
+  .links {
+    display: none;
+  }
+  #close {
+    width: 30vw;
+  }
+  #cerrar_sesion {
+    font-size: 0.8rem;
+    height: 3vh;
+    border: none;
+    margin-left: 5%;
+  }
+  label {
+    font-size: 1rem;
+    width: 90%;
+  }
+  .em {
+    display: flex;
+    flex-direction: column;   
+    margin-bottom: 5%;
+  }
+  .col {
+    width: 30%;
+    margin-right: none;
+  }
+  .xyz {
+    width: 80vw;
+  }
+  .em .xyz .col input {
+    width: 60vw;
+  }
+}

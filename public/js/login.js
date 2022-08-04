@@ -16,10 +16,11 @@ form.addEventListener('submit', (e) => {
         })
     }).then(res => res.json()).then(data => {
         if(data.status === 'ok'){
-            window.location.href = '/dashboard';
+            localStorage.setItem('user', user_id);
+            window.location.href = `/dashboard`;
         }
         else{
-            swal("Error", "Usuario o contraseña incorrectos", "error");
+            swal("Error", `${data.message}`, "error");
         }
     }).catch(err => console.log(err));
 });

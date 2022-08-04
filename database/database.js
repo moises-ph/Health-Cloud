@@ -1,13 +1,11 @@
-const mysql = require('mysql');
+const mongoose = require('mongoose');
 
-const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Mphr_2015',
-    database: 'registro_BD2',
-    port: 3306
+const URL = 'mongodb://localhost:27017/heatlh_cloud';
+
+mongoose.connect(URL).then(db => {
+  console.log('DB is connected');
+}).catch(err => {
+  console.log(err);
 });
 
-const format = mysql.format;
-
-module.exports = {db, format};
+module.exports = mongoose;

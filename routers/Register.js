@@ -58,7 +58,6 @@ router.post('/', async (req, res)=>{
 
             await UserTask.save();
             await UserDataTask.save();
-            console.log(UserTask);
             res.json({
                 status: 'ok',
                 message: 'Usuario registrado'

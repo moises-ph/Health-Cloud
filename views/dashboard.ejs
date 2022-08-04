@@ -17,7 +17,6 @@
     class="formulario"
     id="form"
     name="Formulario-datosbasicos-lgd"
-    action="/dashboard"
     method="POST"
   >
     <h1>Datos básicos</h1>
@@ -47,19 +46,18 @@
         />
       </label>
 
-      <label for="fecha-nacimiento"
+      <label for="date_of_birth"
         >Fecha de nacimiento:
         <input
-          name="fecha_nacimiento"
           type="date"
-          name="fechaNacimiento"
-          id="fecha-nacimiento"
+          name="date_of_birth"
+          id="date_of_birth"
         />
       </label>
 
       <label
         >Documento de Identidad:
-        <select name="tipo_documento" id="tipo_id">
+        <select name="tipo_documento" id="doc_type">
           <option value="Seleccione">Seleccione</option>
           <option value="C.C">C.C</option>
           <option value="Carnet diplomatico">Carnet diplomatico</option>
@@ -83,31 +81,31 @@
           type="text"
           placeholder="Numero de documento de identidad"
           maxlength="10"
-          id="documento-id"
+          id="num_documento"
           value="Documento"
           disabled
         />
       </label>
 
-      <label for="genero"
+      <label for="gender"
         >Genero:
         <input
           type="text"
           name="genero"
           name="genero"
-          id="genero"
+          id="gender"
           class="input"
           disabled
         />
       </label>
 
-      <label for="edad-act"
+      <label for="age"
         >Edad:
         <input
           type="number"
           name="edad"
           name="edad-act"
-          id="edad-act"
+          id="age"
           disabled
         />
       </label>
@@ -116,7 +114,7 @@
         >Telefono:
         <input
           name="Telefono"
-          id="telefono"
+          id="phone"
           type="number"
           class="input"
           placeholder="Telefono"
@@ -128,7 +126,7 @@
         >Dirección:
         <input
           type="text"
-          id="direccion"
+          id="address"
           placeholder="Dirección"
           class="input"
           name="Direccion"
@@ -139,7 +137,7 @@
         >Departamento:
         <input
           type="text"
-          id="departamento"
+          id="state"
           placeholder="Departamento"
           class="input"
           name="Departamento"
@@ -150,7 +148,7 @@
         >Ciudad:
         <input
           type="text"
-          id="ciudad"
+          id="city"
           placeholder="Ciudad"
           class="input"
           name="Ciudad"
@@ -159,7 +157,7 @@
 
       <label
         >Estado Civil:
-        <select name="EstadoCivil" id="estado-civil">
+        <select name="EstadoCivil" id="civil_status">
           <option value="Seleccione">Seleccione</option>
           <option value="Soltero">Soltero</option>
           <option value="Casado">Casado</option>
@@ -170,7 +168,7 @@
 
       <label
         >Estrato Socioeconómico:
-        <select name="estrato" id="estrato">
+        <select name="estrato" id="stratus">
           <option value="Seleccione">Seleccione</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -183,7 +181,7 @@
 
       <label
         >Ocupación:
-        <select name="ocupacion" id="ocupacion" required>
+        <select name="ocupacion" id="ocupation" required>
           <option value="Seleccione">Seleccione</option>
           <option value="Estudiante">Estudiante</option>
           <option value="Empleado">Empleado</option>
@@ -196,7 +194,7 @@
 
       <label name="regimen-perteneciente"
         >Régimen Perteneciente:
-        <select name="regimenPerteneciente" id="regimen-perteneciente">
+        <select name="regimenPerteneciente" id="regim">
           <option value="Seleccione">Seleccione</option>
           <option value="Subsidiado">Subsidiado</option>
           <option value="Contributivo">Contributivo</option>
@@ -235,7 +233,7 @@
           placeholder="Contraseña"
           class="input"
           name="password"
-          id="contraseña"
+          id="password"
         />
         <input
           type="password"

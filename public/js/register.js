@@ -34,7 +34,7 @@ form.addEventListener('submit', (e) => {
         password: e.target.password.value,
         age: e.target.age.value,
         gender: e.target.gender.value,
-        email: e.target.gender.value,
+        email: e.target.email.value,
         userType: e.target.userType.value,
         docType: e.target.docType.value
       })

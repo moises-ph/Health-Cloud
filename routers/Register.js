@@ -2,69 +2,61 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { UserSchema, UserDataSchema } = require('../models/users');
+const Joi = require('joi');
 
-router.get('/', (req, res)=>{
-    res.render('register');
-})
+const schemRegister = Joi.object({
+    num_documento: Joi.number().required(),
+    name: Joi.string().required(),
+    lastname: Joi.string().required(),
+    age: Joi.number().required(),
+    gender: Joi.string().required(),
+    email: Joi.string().required(),
+    password: Joi.string().min(6).required(),
+    user_type: Joi.string().required(),
+    doc_type: Joi.string().required()
+});
 
 router.post('/', async (req, res)=>{
-    if(req.session.logged){
-        res.redirect('/dashboard');
+    // Validate the data
+    const { error } = schemRegister.validate(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
+
+    const { num_documento, name, lastname, age, gender, email, password, user_type, doc_type } = req.body;
+
+    const emailExist = await UserSchema.findOne({email: email});
+    if(emailExist) return res.status(400).json({msg: 'Email already exists'});
+
+    const num_documentoExist = await UserSchema.findOne({num_documento: num_documento});
+    if(num_documentoExist) return res.status(400).json({msg: 'Document already exists'});
+
+    //hash password
+    const salt = await bcrypt.genSalt(10);
+    const password_hash = await bcrypt.hash(password, salt);
+
+    //Create a new user
+
+    try{
+        const user = new UserSchema({
+            num_documento,
+            name,
+            lastname,
+            age,
+            gender,
+            email,
+            password: password_hash,
+            user_type,
+            doc_type
+        });
+        const userData = new UserDataSchema({
+            num_documento
+        });
+        await user.save();
+        await userData.save();
+        res.json({msg: 'User created'});
     }
-    else{
-        const { userId, name, lastname, password, age, gender, email, userType, docType } = req.body;
-
-        const password_crypt = await bcrypt.hash(password, 10);
-
-        const find = await UserSchema.findOne({num_documento: userId});
-
-        if(find){
-            res.json({
-                status: 'Error',
-                message: 'Usuario ya existe'
-            })
-        }
-        else{
-            const UserTask = new UserSchema({
-                num_documento: parseInt(userId),
-                name,
-                lastname,
-                age: parseInt(age),
-                gender,
-                email,
-                password: password_crypt,
-                user_type: userType,
-                doc_type: docType
-            });
-
-            const UserDataTask = new UserDataSchema({
-                num_documento: parseInt(userId),
-                phone:  0,
-                address: '0',
-                city: '0',
-                state: '0',
-                civil_status: '0',
-                stratus: '0',
-                date_of_birth: '0',
-                ocupation: '0',
-                regim: '0',
-                blood_type: '0',
-                height: '0',
-                weight: 0,
-                allergies: 0,
-                diseases: '0',
-                surgeries: '0'
-            })
-
-            await UserTask.save();
-            await UserDataTask.save();
-            res.json({
-                status: 'ok',
-                message: 'Usuario registrado'
-            });
-        }
+    catch (error) {
+        res.status(400).json({msg: error.message});
     }
-
 });
 
 module.exports = router;

@@ -2,11 +2,10 @@
 
 const express = require('express');
 const morgan = require('morgan');
-const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
-const expressLayouts = require('express-ejs-layouts');
 const { mongoose } = require('./database/database');
+require('dotenv').config();
 
 // Import the routes
 
@@ -15,10 +14,13 @@ const registerRouter = require('./routers/Register');
 const DashboardRouter = require('./routers/Dashboard');
 const LogoutRouter = require('./routers/Logout');
 
+// import jwt validato
+const verifyToken = require('../validate-token');
+
 // Start the app
 
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT;
 
 // Middleware
 
@@ -26,19 +28,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true,
-}));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Vistas
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(expressLayouts);
-
 
 // Route of Index
 
@@ -50,7 +40,7 @@ app.get('/', (req, res)=>{
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/dashboard', DashboardRouter);
+app.use('/dashboard', verifyToken ,DashboardRouter);
 app.use('/logout', LogoutRouter)
 
 

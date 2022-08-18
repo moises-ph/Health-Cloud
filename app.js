@@ -14,8 +14,8 @@ const registerRouter = require('./routers/Register');
 const DashboardRouter = require('./routers/Dashboard');
 const LogoutRouter = require('./routers/Logout');
 
-// import jwt validato
-const verifyToken = require('../validate-token');
+// import jwt validator
+const verifyToken = require('./routers/validate-token');
 
 // Start the app
 
@@ -30,18 +30,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route of Index
-
-app.get('/', (req, res)=>{
-    res.render('home');
-});
-
 // Set up Routes
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/dashboard', verifyToken ,DashboardRouter);
-app.use('/logout', LogoutRouter)
+app.use('/logout', verifyToken, LogoutRouter)
 
 
 // Start the server

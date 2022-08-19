@@ -2,14 +2,20 @@ import React from 'react'
 import Nav from './Nav'
 import {NavLink} from 'react-router-dom'
 
-function TheIndex() {
+function Index() {
+  
   return (
     <>
       <Nav />
-      <h1>Vitaly's Now</h1>
       <NavLink to='/empresa'>Pagina de empresa</NavLink>
+      <p>
+        Vitaly's Now es una empresa enfocado al mejoramiento de la comunicacion
+        entre pacientes y empresas de salud, de manera que los procesos que estas
+        ultimas hacen para brindar servicios a los pacientes sean hechos de manera
+        rapida y eficaz para ofrecer el mejor servicio posible.
+      </p>
     </>
   )
 }
 
-export default TheIndex
+export default Index;

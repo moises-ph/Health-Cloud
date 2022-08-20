@@ -6,7 +6,6 @@ function Index() {
   return (
     <>
       <Nav />
-      <NavLink to="/empresa">Pagina de empresa</NavLink>
       
       <main>
         <p>
@@ -16,6 +15,7 @@ function Index() {
           pacientes sean hechos de manera rapida y eficaz para ofrecer el mejor
           servicio posible.
         </p>
+      <NavLink to="/empresa">Pagina de empresa</NavLink>  
       </main>
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import pacientes from "../../Images/Icons/Pacientes.png"
-import monitor from "../../Images/Icons/Monitor.png"
-import relaciones from "../../Images/Icons/Relaciones.png"
+import pacientes from "../../Imgs/Pacientes.png"
+import monitor from "../../Imgs/Monitor.png"
+import relaciones from "../../Imgs/Relaciones.png"
 import { NavLink } from "react-router-dom";
 
 function Index() {

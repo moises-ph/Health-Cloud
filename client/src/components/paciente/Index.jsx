@@ -1,12 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
+import Carousel from "./Carousel/Carousel";
 import { NavLink } from "react-router-dom";
 
 function Index() {
   return (
     <>
       <Nav />
-      
+      <Carousel />
       <main>
         <p>
           Vitaly's Now es una empresa enfocado al mejoramiento de la

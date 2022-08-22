@@ -44,9 +44,9 @@ function Carousel() {
 	}
   return (
 	<>
-		<div className="my-6 w-screen h-6/12 flex flex-row justify-center">
+		<div className="my-6 w-98 h-6/12 flex flex-row justify-center">
 			<CarouselImg src={selectedImg} alt='health' className={loaded ? 'loaded' : ''} onLoad={()=>{setLoaded(true)}}/>
-			<div className="absolute z-50 h-3/4 w-full flex flex-row justify-around items-center" >
+			<div className="absolute z-50 h-3/4 w-11/12 flex flex-row justify-around items-center" >
 				<button className="cursor-pointer" onClick={previous}><img src={left} /></button>
 				<button className="cursor-pointer" onClick={next}><img src={right} /></button>
 			</div>

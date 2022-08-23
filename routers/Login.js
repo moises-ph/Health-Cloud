@@ -7,7 +7,7 @@ const joi = require('joi');
 
 const schemaLogin = joi.object({
     num_documento: joi.number().required(),
-    password: joi.string().required()
+    password: joi.string().min(6).required()
 });
 
 router.post('/',async (req, res)=>{
@@ -25,7 +25,7 @@ router.post('/',async (req, res)=>{
 
     const token = jwt.sign({_id: user._id, numUser : user.num_documento}, process.env.TOKEN_SECRET);
 
-    res.header('auth-token', token).json({msg: 'User logged in', token});
+    res.header('auth-token', token).json({msg: 'User logged in'});
 
 });
 

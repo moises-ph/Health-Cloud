@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Carousel from "./Carousel/Carousel";
 import Listas from "./Listas";
 import { NavLink } from "react-router-dom";
+import Footer from "./Footer";
 
 function Index() {
   return (
@@ -25,6 +26,7 @@ function Index() {
           <Listas />
         </section>
       </main>
+      <Footer />
       <NavLink to="/empresa">Pagina de empresa</NavLink>
     </>
   );

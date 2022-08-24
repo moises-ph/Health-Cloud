@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../paciente/Footer";
 import Carousel from "../paciente/Carousel/Carousel";
 import pacientes from "../../Imgs/Pacientes.png";
 import monitor from "../../Imgs/Monitor.png";
@@ -56,6 +57,7 @@ function Index() {
       </main>
       <label>Eres un paciente busacando ingresar a la pagina? ingresa aqui: </label>
       <NavLink to="/">Pagina de paciente</NavLink>
+      <Footer />
     </>
   );
 }

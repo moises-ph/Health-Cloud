@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "../paciente/Carousel/Carousel";
 import pacientes from "../../Imgs/Pacientes.png";
 import monitor from "../../Imgs/Monitor.png";
 import relaciones from "../../Imgs/Relaciones.png";
@@ -7,7 +8,12 @@ import { NavLink } from "react-router-dom";
 function Index() {
   return (
     <>
-      <h1>Vitaly's Now</h1>
+      <header>
+        <nav>
+          <h1>Vitaly's Now</h1>
+        </nav>
+      </header>
+      <Carousel />
       <main>
         <section>
           <p>

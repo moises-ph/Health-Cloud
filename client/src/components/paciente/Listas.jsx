@@ -29,8 +29,8 @@ function Listas() {
       <div className="w-4/5 grid grid-cols-3 gap-3">
         {content.map((list) => {
           return (
-            <div className="flex flex-col items-center">
-              <img src={list.imagen} className="w-10 h-auto" />
+            <div key={list.titulo} className="flex flex-col items-center">
+              <img src={list.imagen} className="w-10 h-auto" alt="icono de muestra de Vytali's Now"/>
               <h3 className="text-xl">{list.titulo}</h3>
               <ul>
                 <li>{list.li1}</li>

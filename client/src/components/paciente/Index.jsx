@@ -7,7 +7,9 @@ import { NavLink } from "react-router-dom";
 function Index() {
   return (
     <>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
       <Carousel />
       <main>
         <section>

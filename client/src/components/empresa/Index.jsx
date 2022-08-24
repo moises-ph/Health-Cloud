@@ -54,6 +54,7 @@ function Index() {
           </div>
         </section>
       </main>
+      <label>Eres un paciente busacando ingresar a la pagina? ingresa aqui: </label>
       <NavLink to="/">Pagina de paciente</NavLink>
     </>
   );

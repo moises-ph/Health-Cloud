@@ -26,7 +26,7 @@ function Listas() {
   ];
   return (
     <>
-      <div className="w-4/5 grid grid-cols-3 gap-3">
+      <div className="w-4/5 grid grid-cols-3 gap-3 portrait:flex portrait:flex-col portrait:justify-center">
         {content.map((list) => {
           return (
             <div key={list.titulo} className="flex flex-col items-center">

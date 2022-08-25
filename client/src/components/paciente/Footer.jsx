@@ -8,19 +8,20 @@ function Footer() {
   return (
     <>
       <footer>
-        <a href="#">
-          <img src={Facebook} alt="link to facebook page"></img>
-        </a>
-        <a href="#">
-          <img src={Instagram} alt="link to instagram page"></img>
-        </a>
-        <a href="#">
-          <img src={Whatsapp} alt="link to whatsapp account"></img>
-        </a>
-        <a href="https://github.com/moises-ph/Health-Cloud" target="blank">
-          <img src={Github} alt="link to github repo"></img>
-        </a>
-
+        <div className="flex items-center w-11/12 justify-center">
+          <a href="#">
+            <img src={Facebook} className="h-8 w-auto" alt="link to facebook page"></img>
+          </a>
+          <a href="#">
+            <img src={Instagram} className="h-8 w-auto" alt="link to instagram page"></img>
+          </a>
+          <a href="#">
+            <img src={Whatsapp} className="h-8 w-auto" alt="link to whatsapp account"></img>
+          </a>
+          <a href="https://github.com/moises-ph/Health-Cloud" target="blank">
+            <img src={Github} className="h-8 w-auto" alt="link to github repo"></img>
+          </a>
+        </div>
         <p>Todos los derechos reservados por Vitaly's Now 2022.</p>
       </footer>
     </>

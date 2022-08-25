@@ -2,7 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation:{
+        back: 'backs 1s ease-in-out'
+      },
+      keyframes: {
+        backs:{
+          '100%' :{backgroundColor:'red' }
+        }
+      }
+    },
   },
   plugins: [],
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Carousel from "./Carousel/Carousel";
 import Listas from "./Listas";
+import hearth from "../../Imgs/hearth.svg"
 import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
 
@@ -12,19 +13,9 @@ function Index() {
         <Nav />
       </header>
       <main>
-        <section>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="116"
-            height="106"
-            version="1.1"
-          >
-            <path
-              d="M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z"
-              fill="#ff0707"
-            />
-          </svg>
-          <p>
+        <section className="flex flex-row justify-around my-9">
+          <img src={hearth} alt="heath svg" className="h-[25vh] w-auto"/>
+          <p className="w-1/4 text-2xl">
             Vitaly's Now es una empresa enfocado al mejoramiento de la
             comunicacion entre pacientes y empresas de salud, de manera que los
             procesos que estas ultimas hacen para brindar servicios a los
@@ -38,21 +29,21 @@ function Index() {
         <section className="grid place-items-center">
           <Listas />
         </section>
-        <section>
-          <div>
+        <section className="flex p-10 items-center justify-center h-[38vh] px-48">
+          <div className="flex flex-col items-center w-3/5 bg-gradient-to-r from-slate-200 to-slate-100 h-full m-16 shadow-xl pt-3">
             {/*imagen*/}
-            <h3>Mision:</h3>
-            <p>
+            <h3 className="text-4xl font-bold">Mision:</h3>
+            <p className=" w-3/5 text-2xl text-justify">
               Poder crear una solucion rapida y eficiente para los empresas del
               sector de la salud en Colombia, las cuales todavia manejen sus
               archivos y sus procesos de forma manual, para que pueden brindar
               un servicio mas optimizado a los pacientes
             </p>
           </div>
-          <div>
+          <div className="flex flex-col justify-center items-center w-3/5 bg-gradient-to-r from-slate-200 to-slate-100 h-full shadow-xl pt-3">
             {/*imagen*/}
-            <h3>Vision:</h3>
-            <p>
+            <h3 className="text-4xl font-bold">Vision:</h3>
+            <p className="w-3/5 text-2xl text-justify mt-4">
               Expandir la empresa para que brinde soporte en todos departamentos
               de colombia, ofreciendo apoyo a todas las empresas que no hayan
               actualizado sus procesos a los formatos actuales

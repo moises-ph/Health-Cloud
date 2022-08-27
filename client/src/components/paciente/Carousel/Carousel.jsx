@@ -8,17 +8,17 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const CarouselImg = styled.img`
-  max-width: 800px;
   z-index: 1;
-  width: 100%;
+  width: 80vw;
   height: 70vh;
   opacity: 0.2;
   transition: 1s;
   @media screen and (orientation: portrait) {
     width: 100vw;
-    height: 50vh;
+    height: 40vh;
   }
   @media screen and(max-width: 320px) {
+    max-width: 100vw;
     width: 100vw;
     height: 50vh;
   }
@@ -60,7 +60,7 @@ function Carousel() {
   };
   return (
     <>
-      <div className="my-6 w-98 h-6/12 flex flex-row justify-center">
+      <div className="my-6 w-98 h-6/12 flex flex-row justify-center portrait:w-screen">
         <CarouselImg
           src={selectedImg}
           alt="health"
@@ -69,7 +69,7 @@ function Carousel() {
             setLoaded(true);
           }}
         />
-        <div className="absolute z-50 h-3/4 w-11/12 flex flex-row justify-around items-center portrait:h-2/4 portrait:w-full portrait:justify-between">
+        <div className="absolute z-50 h-3/4 w-11/12 flex flex-row justify-around items-center portrait:h-2/5 portrait:w-screen portrait:justify-between">
           <button className="cursor-pointer" onClick={previous}>
             <img src={left} alt="flecha de direccion" />
           </button>

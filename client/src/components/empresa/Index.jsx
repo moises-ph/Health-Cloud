@@ -1,9 +1,9 @@
 import React from "react";
 import Footer from "../paciente/Footer";
 import Carousel from "../paciente/Carousel/Carousel";
-import pacientes from "../../Imgs/Pacientes.png";
-import monitor from "../../Imgs/Monitor.png";
-import relaciones from "../../Imgs/Relaciones.png";
+import pacientes from "../../Imgs/pacientes.svg";
+import screen from "../../Imgs/screen.svg";
+import comunication from "../../Imgs/comunication.svg";
 import { NavLink } from "react-router-dom";
 
 function Index() {
@@ -35,7 +35,7 @@ function Index() {
             </ul>
           </div>
           <div>
-            <img src={monitor} alt="" />
+            <img src={screen} alt="" />
             <h3>Para el sector salud</h3>
             <ul>
               <li>
@@ -46,7 +46,7 @@ function Index() {
             </ul>
           </div>
           <div>
-            <img src={relaciones} alt="" />
+            <img src={comunication} alt="" />
             <h3>Tecnologias</h3>
             <ul>
               <li>Hecho con las ultimas tecnologias</li>

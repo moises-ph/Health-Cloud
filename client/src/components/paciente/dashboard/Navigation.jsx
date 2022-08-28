@@ -1,12 +1,25 @@
 import React from "react";
+import DatosPerson from "./DatosPerson";
+import ServicioCliente from "./ServicioCliente";
+import SolicitudHC from "./SolicitudHC";
 
-function Navigation() {
+function Navigation({setContent}) {
+  const setDatos = () => {
+    setContent(DatosPerson)
+  }
+  const setServicio = () => {
+    setContent(ServicioCliente)
+  }
+  const setHC = () => {
+    setContent(SolicitudHC)
+  }
   return (
     <>
       <nav>
         <div>
-          <button>Servicio al Cliente</button>
-          <button></button>
+          <button onClick={setHC}>Solicitar ver historias clinicas</button>
+          <button onClick={setServicio}>Servicio al Cliente</button>
+          <button onClick={setDatos}>Datos</button>
         </div>
       </nav>
     </>

@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Nav from './Nav'
 
 function Dashboard() {
+  const [content, setContent] = useState(<h3>Contenido</h3>)
   return (
-    <div>Dashboard</div>
+    <>
+      <Nav setContent={setContent} />
+      <header>
+        <span>icono</span>
+        <button>Cerrar Sesion</button>
+        <button>icono ajustes</button>
+        <button>icono notificaciones</button>
+      </header>
+      <div>{content}</div>
+    </>
   )
 }
 

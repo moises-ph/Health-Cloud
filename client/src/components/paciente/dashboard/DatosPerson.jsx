@@ -10,8 +10,8 @@ function DatosPerson() {
           <option value="">Tipo de documento</option>
           <option value="C.C">C.C</option>
           <option value="Carnet diplomatico">Carnet diplomatico</option>
-          <option value="Certificado nacido vivo">
-            Certificado nacido vivo
+          <option value="Certificado de nacimiento">
+            Certificado de nacimiento
           </option>
           <option value="Cedula de extranjeria">Cedula de extranjeria</option>
           <option value="Nit">Nit</option>

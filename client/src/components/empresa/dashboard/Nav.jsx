@@ -15,8 +15,8 @@ function Nav({ setContent }) {
   };
   return (
     <>
-      <nav>
-        <div>
+      <nav className="w-full flex flex-col justify-center col-span-2">
+        <div className="flex flex-col gap-6">
           <button onClick={setRegistrar}>Registrar Clientes</button>
           <button onClick={setCrearHC}>Crear Historias Clinicas</button>
           <button onClick={setBorrarCuentas}>Borrar cuentas</button>

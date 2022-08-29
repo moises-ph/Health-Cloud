@@ -15,8 +15,8 @@ function Navigation({setContent}) {
   }
   return (
     <>
-      <nav className="w-1/5 flex flex-col justify-center ">
-        <div className="w-1/5 flex flex-col justify-center ">
+      <nav className="w-full flex flex-col justify-center col-span-2">
+        <div className="flex flex-col gap-6 ">
           <button onClick={setHC}>Solicitar ver historias clinicas</button>
           <button onClick={setServicio}>Servicio al Cliente</button>
           <button onClick={setDatos}>Datos</button>

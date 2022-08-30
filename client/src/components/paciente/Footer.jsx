@@ -10,13 +10,13 @@ function Footer() {
     <>
       <footer>
         <div className="flex items-center w-11/12 justify-center">
-          <a href="#" target="blank">
+          <a href="/" target="blank">
             <img src={Facebook} className="h-8 w-auto" alt="link to facebook page"></img>
           </a>
           <a href="https://www.instagram.com/vitalysnowofficial/" target="blank">
             <img src={Instagram} className="h-8 w-auto" alt="link to instagram page"></img>
           </a>
-          <a href="#">
+          <a href="/">
             <img src={Whatsapp} className="h-8 w-auto" alt="link to whatsapp account"></img>
           </a>
           <a href="https://github.com/moises-ph/Health-Cloud" target="blank">

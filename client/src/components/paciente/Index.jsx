@@ -51,6 +51,7 @@ function Index() {
           </div>
         </section>
       </main>
+      <NavLink to="/paciente/SolicitarRegistro" >Solicitar Registro</NavLink>
       <label>
         Formas parte de una empresa del sector salud buscando usar nuestros
         servicios, ingresa aqui:{" "}

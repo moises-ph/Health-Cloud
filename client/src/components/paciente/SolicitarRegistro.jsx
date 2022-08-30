@@ -12,7 +12,19 @@ function SolicitarRegistro() {
             Permiso especial de permanencia
       </option>
     </select>
-    
+    <input type="number" placeholder="Numero de documento" />
+    <input type="text" placeholder="Nombres" />
+    <input type="text" placeholder="Apellidos" />
+    <input type="number" placeholder="Edad" />
+    <select>
+      <option value="">Genero</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+      <option value="Otro">Otro</option>
+    </select>
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Contraseña" />
+
     </form>
     </>
   )

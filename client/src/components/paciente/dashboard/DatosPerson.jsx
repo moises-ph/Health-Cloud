@@ -7,7 +7,7 @@ function DatosPerson() {
       <form action="post">
         <h2 className=" text-xl">Resgitro</h2>
         <select>
-          <option value="">Tipo de documento</option>
+          <option value="">Tipo de documento:</option>
           <option value="C.C">C.C</option>
           <option value="Carnet diplomatico">Carnet diplomatico</option>
           <option value="Certificado de nacimiento">
@@ -31,24 +31,24 @@ function DatosPerson() {
         <input type="text" placeholder="Apellidos" />
         <input type="number" placeholder="Edad" />
         <select>
-          <option value="">Genero</option>
+          <option value="">Genero:</option>
           <option value="Masculino">Masculino</option>
           <option value="Femenino">Femenino</option>
           <option value="Otro">Otro</option>
         </select>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Contraseña" />
-        <label>Ingrese su altura en centimetros</label>
+        <label>Ingrese su altura en centimetros:</label>
         <input type="number" placeholder="altura" />
-        <label>Ingrese su peso en kilogramos</label>
+        <label>Ingrese su peso en kilogramos:</label>
         <input type="number" placeholder="Peso" />
-        <label>Ingrese el departamento</label>
+        <label>Ingrese el departamento:</label>
         <input type="text" placeholder="Departamento" />
-        <label>Ingrese ciudad de residencia</label>
+        <label>Ingrese ciudad de residencia:</label>
         <input type="text" placeholder="ciudad" />
-        <label>Ingrese su Direccion</label>
+        <label>Ingrese su Direccion:</label>
         <input type="text" placeholder="Direccion" />
-        <label>Ingrese su estado civil</label>
+        <label>Ingrese su estado civil:</label>
         <select>
           <option value="">Estado Civil</option>
           <option value="Soltero">Soltero</option>
@@ -60,13 +60,13 @@ function DatosPerson() {
           <option value="viudo">viudo</option>
           <option value="concubinato">concubinato</option>
         </select>
-        <label>Ingrese su fecha de nacimiento</label>
+        <label>Ingrese su fecha de nacimiento:</label>
         <input type="date" />
         <label>Ingrese su ocupacion</label>
         <input type="text" placeholder="Ocupacion" />
         <label>Ingrse su grupo sanguineo</label>
         <select>
-          <option value="">Grupo sanguineo</option>
+          <option value="">Grupo sanguineo:</option>
           <option value="A+">A+</option>
           <option value="A-">A-</option>
           <option value="B+">B+</option>

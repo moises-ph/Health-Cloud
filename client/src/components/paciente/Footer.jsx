@@ -9,10 +9,10 @@ function Footer() {
     <>
       <footer>
         <div className="flex items-center w-11/12 justify-center">
-          <a href="#">
+          <a href="https://twitter.com/Vitalys_Now" target="blank">
             <img src={Facebook} className="h-8 w-auto" alt="link to facebook page"></img>
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/vitalysnowofficial/" target="blank">
             <img src={Instagram} className="h-8 w-auto" alt="link to instagram page"></img>
           </a>
           <a href="#">

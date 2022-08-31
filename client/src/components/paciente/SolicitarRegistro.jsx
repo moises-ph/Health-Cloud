@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from "axios";
+import Nav from "./Nav";
 
 function SolicitarRegistro() {
   const error = useRef();
@@ -72,43 +73,118 @@ function SolicitarRegistro() {
       })
       .catch((err) => {
         console.log(err);
-        error.current.innerHTML = 'datos ya existentes '
+        error.current.innerHTML = "datos ya existentes ";
       });
   };
   return (
     <>
-      <select ref={doc_type}>
-        <option value="">Tipo de documento:</option>
-        <option value="C.C">C.C</option>
-        <option value="Pasaporte">Pasaporte</option>
-        <option value="Permiso especial de permanencia">
-          Permiso especial de permanencia
-        </option>
-      </select>
-      <input
-        type="number"
-        placeholder="Numero de documento"
-        ref={num_documento}
-      />
-      <input type="text" placeholder="Nombres" ref={name} />
-      <input type="text" placeholder="Apellidos" ref={lastname} />
-      <input type="number" placeholder="Edad" ref={age} />
-      <select ref={gender}>
-        <option value="">Genero</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Femenino">Femenino</option>
-        <option value="Otro">Otro</option>
-      </select>
-      <select ref={user_type}>
-        <option value="">Tipo de usuario</option>
-        <option value="paciente">paciente</option>
-        <option value="empleado">empleado</option>
-        <option value="administrador">administrador</option>
-      </select>
-      <input type="email" placeholder="Email" ref={email} />
-      <input type="password" placeholder="Contraseña" ref={password} />
-      <div ref={error}></div>
-      <button onClick={guardar}>Solicitar Registro</button>
+      <Nav />
+      <div className="w-screen h-screen bg-[#171941] portrait:p-3">
+        <div className="portrait:flex portrait:flex-col portrait:items-start bg-[#1f2251] portrait:p-2 portrait:shadow-2xl portrait:rounded-2xl portrait:gap-5">
+          <select
+            ref={doc_type}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          >
+            <option value="" className="bg-transparent text-white">
+              Tipo de documento:
+            </option>
+            <option value="C.C" className="bg-transparent text-white">
+              C.C
+            </option>
+            <option value="Pasaporte" className="bg-transparent text-white">
+              Pasaporte
+            </option>
+            <option
+              value="Permiso especial de permanencia"
+              className="bg-transparent text-white"
+            >
+              Permiso especial de permanencia
+            </option>
+          </select>
+          <input
+            type="number"
+            placeholder="Numero de documento"
+            ref={num_documento}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <input
+            type="text"
+            placeholder="Nombres"
+            ref={name}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <input
+            type="text"
+            placeholder="Apellidos"
+            ref={lastname}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <input
+            type="number"
+            placeholder="Edad"
+            ref={age}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <select
+            ref={gender}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          >
+            <option value="" className="bg-transparent text-white">
+              Genero
+            </option>
+            <option value="Masculino" className="bg-transparent text-white">
+              Masculino
+            </option>
+            <option value="Femenino" className="bg-transparent text-white">
+              Femenino
+            </option>
+            <option value="Otro" className="bg-transparent text-white">
+              Otro
+            </option>
+          </select>
+          <select
+            ref={user_type}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          >
+            <option value="" className="bg-transparent text-white">
+              Tipo de usuario
+            </option>
+            <option value="paciente" className="bg-transparent text-white">
+              paciente
+            </option>
+            <option value="empleado" className="bg-transparent text-white">
+              empleado
+            </option>
+            <option
+              value="administrador"
+              className="bg-transparent text-white outline-none"
+            >
+              administrador
+            </option>
+          </select>
+          <input
+            type="email"
+            placeholder="Email"
+            ref={email}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            ref={password}
+            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+          />
+          <div ref={error} className="bg-transparent text-white"></div>
+          <div className="portrait:w-full portrait:flex portrait:justify-center">
+            <button
+              onClick={guardar}
+              className="bg-transparent text-white bg-[#2280f7] portrait:w-3/5 h-9 rounded-3xl hover:bg-[#2074e2]"
+            >
+              Solicitar Registro
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

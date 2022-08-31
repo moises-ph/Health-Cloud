@@ -85,18 +85,18 @@ function SolicitarRegistro() {
             ref={doc_type}
             className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
           >
-            <option value="" className="bg-transparent text-white">
+            <option value="" className="bg-[#1f2251] text-white ">
               Tipo de documento:
             </option>
-            <option value="C.C" className="bg-transparent text-white">
+            <option value="C.C" className="bg-[#1f2251] text-white ">
               C.C
             </option>
-            <option value="Pasaporte" className="bg-transparent text-white">
+            <option value="Pasaporte" className="bg-[#1f2251] text-white ">
               Pasaporte
             </option>
             <option
               value="Permiso especial de permanencia"
-              className="bg-transparent text-white"
+              className="bg-[#1f2251] text-white "
             >
               Permiso especial de permanencia
             </option>
@@ -111,13 +111,13 @@ function SolicitarRegistro() {
             type="text"
             placeholder="Nombres"
             ref={name}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
           />
           <input
             type="text"
             placeholder="Apellidos"
             ref={lastname}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
           />
           <input
             type="number"
@@ -127,18 +127,18 @@ function SolicitarRegistro() {
           />
           <select
             ref={gender}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-[#1f2251] text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
           >
-            <option value="" className="bg-transparent text-white">
+            <option value="" className="bg-[#1f2251] text-white">
               Genero
             </option>
-            <option value="Masculino" className="bg-transparent text-white">
+            <option value="Masculino" className="bg-[#1f2251] text-white ">
               Masculino
             </option>
-            <option value="Femenino" className="bg-transparent text-white">
+            <option value="Femenino" className="bg-[#1f2251] text-white ">
               Femenino
             </option>
-            <option value="Otro" className="bg-transparent text-white">
+            <option value="Otro" className="bg-[#1f2251] text-white ">
               Otro
             </option>
           </select>
@@ -146,18 +146,18 @@ function SolicitarRegistro() {
             ref={user_type}
             className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
           >
-            <option value="" className="bg-transparent text-white">
+            <option value="" className="bg-[#1f2251] text-white ">
               Tipo de usuario
             </option>
-            <option value="paciente" className="bg-transparent text-white">
+            <option value="paciente" className="bg-[#1f2251] text-white ">
               paciente
             </option>
-            <option value="empleado" className="bg-transparent text-white">
+            <option value="empleado" className="bg-[#1f2251] text-white ">
               empleado
             </option>
             <option
               value="administrador"
-              className="bg-transparent text-white outline-none"
+              className="bg-[#1f2251] text-white  outline-none"
             >
               administrador
             </option>

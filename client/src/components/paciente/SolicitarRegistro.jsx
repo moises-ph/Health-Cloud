@@ -14,17 +14,31 @@ function SolicitarRegistro() {
   const doc_type = useRef();
 
   const guardar = () => {
-    solicitarRegistro(
-      num_documento,
-      name,
-      lastname,
-      age,
-      gender,
-      email,
-      password,
-      user_type,
-      doc_type
-    );
+    if (
+      num_documento.current.value === "" ||
+      name.current.value === "" ||
+      lastname.current.value === "" ||
+      age.current.value === "" ||
+      gender.current.value === "" ||
+      email.current.value === "" ||
+      password.current.value === "" ||
+      user_type.current.value === "" ||
+      doc_type.current.value === ""
+    ) {
+      error.current.innerHTML = "Todos los campos tienen que estar llenos";
+    } else {
+      solicitarRegistro(
+        num_documento,
+        name,
+        lastname,
+        age,
+        gender,
+        email,
+        password,
+        user_type,
+        doc_type
+      );
+    }
   };
 
   const solicitarRegistro = (
@@ -38,10 +52,9 @@ function SolicitarRegistro() {
     user_type,
     doc_type
   ) => {
-    fetch("http://localhost:4000/register", {
-      method: "POST",
-      body:{
-        num_documento: Number(num_documento.current.value),
+    axios
+      .post("http://localhost:4000/register", {
+        num_documento: num_documento.current.value,
         name: name.current.value,
         lastname: lastname.current.value,
         age: age.current.value,
@@ -50,43 +63,18 @@ function SolicitarRegistro() {
         password: password.current.value,
         user_type: user_type.current.value,
         doc_type: doc_type.current.value,
-      },
-    });
-  };
-
-  /*const solicitarRegistro = (
-    num_documento,
-    name,
-    lastname,
-    age,
-    gender,
-    email,
-    password,
-    user_type,
-    doc_type
-  ) => {
-    axios
-      .post(
-        "register",
-        {
-          num_documento: num_documento.current.value,
-          name: name.current.value,
-          lastname: lastname.current.value,
-          age: age.current.value,
-          gender: gender.current.value,
-          email: email.current.value,
-          password: password.current.value,
-          user_type: user_type.current.value,
-          doc_type: doc_type.current.value,
-        }
-      )
+      })
       .then((res) => {
         console.log(res);
       })
+      .then(() => {
+        error.current.innerHTML = "usuario registrado exitosamente";
+      })
       .catch((err) => {
         console.log(err);
+        error.current.innerHTML = 'datos ya existentes '
       });
-  };*/
+  };
   return (
     <>
       <select ref={doc_type}>

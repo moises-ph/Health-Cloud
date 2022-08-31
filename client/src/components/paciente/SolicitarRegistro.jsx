@@ -54,7 +54,7 @@ function SolicitarRegistro() {
     doc_type
   ) => {
     axios
-      .post("http://localhost:4000/register", {
+      .post("/register", {
         num_documento: num_documento.current.value,
         name: name.current.value,
         lastname: lastname.current.value,

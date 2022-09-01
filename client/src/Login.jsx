@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import { Context } from "./context/Context";
 import axios from "axios";
 
 function Login() {
-
   const num_documento = useRef();
   const password = useRef();
 
@@ -12,7 +12,7 @@ function Login() {
     let num = num_documento.current.value;
     let pass = password.current.value;
 
-    axios.post('/login', {num_documento: num, password: pass})
+    axios.post('http://localhost:4000/login', {num_documento: num, password: pass})
       .then((res) => console.log(res)).catch(err => console.log(err));
   }; 
 
@@ -34,7 +34,7 @@ function Login() {
           ref={password}
           required
         />
-        <button>realizar</button>
+        <button onClick={logVerify}>realizar</button>
       </form>
       <NavLink to="/">Ir al home</NavLink>
     </>

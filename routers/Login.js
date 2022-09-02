@@ -11,6 +11,7 @@ const schemaLogin = joi.object({
 });
 
 router.post('/',async (req, res)=>{
+    console.log(req.body);
     // Validate Data
     const { error } = schemaLogin.validate(req.body);
     if(error) return res.status(400).json({msg: error.details[0].message});
@@ -25,7 +26,7 @@ router.post('/',async (req, res)=>{
 
     const token = jwt.sign({_id: user._id, numUser : user.num_documento}, process.env.TOKEN_SECRET);
 
-    res.header('auth-token', token).json({msg: 'User logged in'});
+    res.json({msg: 'User logged in', token});
 
 });
 

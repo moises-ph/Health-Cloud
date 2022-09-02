@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react";
+import Nav from './components/paciente/Nav';
 import { NavLink } from "react-router-dom";
 import { Context } from "./context/Context";
 import axios from "axios";
@@ -18,7 +19,8 @@ function Login() {
 
   return (
     <>
-      <form onSubmit={logVerify}>
+      <Nav />
+      <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col">
         <input
           type="text"
           className="outline-none bg-slate-500 mx-3 rounded-md text-slate-50"

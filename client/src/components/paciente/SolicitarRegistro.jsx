@@ -79,11 +79,11 @@ function SolicitarRegistro() {
   return (
     <>
       <Nav />
-      <div className="w-screen h-screen bg-[#171941] portrait:p-3">
-        <div className="portrait:flex portrait:flex-col portrait:items-start bg-[#1f2251] portrait:p-2 portrait:shadow-2xl portrait:rounded-2xl portrait:gap-5">
+      <div className="w-[100%] h-screen flex justify-center bg-[#171941] portrait:p-3">
+        <div className="portrait:flex portrait:flex-col portrait:items-start bg-[#1f2251] portrait:p-2 portrait:shadow-2xl portrait:rounded-2xl portrait:gap-2 portrait:w-[90%] mt-3 rounded-2xl flex flex-col items-center w-[40%] gap-4 mb-5">
           <select
             ref={doc_type}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           >
             <option value="" className="bg-[#1f2251] text-white ">
               Tipo de documento:
@@ -105,29 +105,29 @@ function SolicitarRegistro() {
             type="number"
             placeholder="Numero de documento"
             ref={num_documento}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <input
             type="text"
             placeholder="Nombres"
             ref={name}
-            className="bg-transparent text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <input
             type="text"
             placeholder="Apellidos"
             ref={lastname}
-            className="bg-transparent text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <input
             type="number"
             placeholder="Edad"
             ref={age}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <select
             ref={gender}
-            className="bg-[#1f2251] text-white  outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-[#1f2251] text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           >
             <option value="" className="bg-[#1f2251] text-white">
               Genero
@@ -144,7 +144,7 @@ function SolicitarRegistro() {
           </select>
           <select
             ref={user_type}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           >
             <option value="" className="bg-[#1f2251] text-white ">
               Tipo de usuario
@@ -166,19 +166,19 @@ function SolicitarRegistro() {
             type="email"
             placeholder="Email"
             ref={email}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <input
             type="password"
             placeholder="Contraseña"
             ref={password}
-            className="bg-transparent text-white outline-none rounded-md border-slate-700 border-2 border-solid portrait:w-11/12"
+            className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <div ref={error} className="bg-transparent text-white"></div>
-          <div className="portrait:w-full portrait:flex portrait:justify-center">
+          <div className="portrait:w-full portrait:flex portrait:justify-center w-full flex justify-center mb-6">
             <button
               onClick={guardar}
-              className="bg-transparent text-white bg-[#2280f7] portrait:w-3/5 h-9 rounded-3xl hover:bg-[#2074e2]"
+              className="bg-transparent text-white bg-[#2280f7] portrait:w-3/5 h-9 rounded-3xl hover:bg-[#2074e2] w-[20%]"
             >
               Solicitar Registro
             </button>

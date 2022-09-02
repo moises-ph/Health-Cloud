@@ -11,7 +11,6 @@ const schemaLogin = joi.object({
 });
 
 router.post('/',async (req, res)=>{
-    console.log(req.body);
     // Validate Data
     const { error } = schemaLogin.validate(req.body);
     if(error) return res.status(400).json({msg: error.details[0].message});

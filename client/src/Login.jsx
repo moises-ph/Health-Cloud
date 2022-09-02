@@ -20,25 +20,28 @@ function Login() {
   return (
     <>
       <Nav />
-      <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col">
+      <div className="flex justify-center h-screen w-screen bg-[#171941]">
+      <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col h-2/5 w-2/5 bg-[#1f2251] flex flex-col justify-center items-center gap-8 rounded-xl">
         <input
           type="text"
-          className="outline-none bg-slate-500 mx-3 rounded-md text-slate-50"
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid border-slate-700 rounded-md"
           min="3"
           max="10"
           ref={num_documento}
+          placeholder="Numero De Documento"
           required
         />
         <input
           type="password"
-          className="outline-none bg-slate-500 rounded-md text-slate-50"
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid border-slate-700 rounded-md"
           min="6"
           ref={password}
           required
+          placeholder="Contraseña"
         />
-        <button onClick={logVerify}>realizar</button>
+        <button onClick={logVerify} className="h-[15%] w-[40%] bg-[#2280f7] rounded-3xl text-white hover:bg-[#2074e2]" >realizar</button>
       </form>
-      <NavLink to="/">Ir al home</NavLink>
+      </div>
     </>
   );
 }

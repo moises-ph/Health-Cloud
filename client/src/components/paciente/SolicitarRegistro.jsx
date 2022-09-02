@@ -79,7 +79,7 @@ function SolicitarRegistro() {
   return (
     <>
       <Nav />
-      <div className="w-[100%] h-screen flex justify-center bg-[#171941] portrait:p-3">
+      <div className="w-[100%] h-[120vh] flex justify-center bg-[#171941] portrait:p-3">
         <div className="portrait:flex portrait:flex-col portrait:items-start bg-[#1f2251] portrait:p-2 portrait:shadow-2xl portrait:rounded-2xl portrait:gap-2 portrait:w-[90%] mt-3 rounded-2xl flex flex-col items-center w-[40%] gap-4 mb-5">
           <select
             ref={doc_type}
@@ -178,7 +178,7 @@ function SolicitarRegistro() {
           <div className="portrait:w-full portrait:flex portrait:justify-center w-full flex justify-center mb-6">
             <button
               onClick={guardar}
-              className="bg-transparent text-white bg-[#2280f7] portrait:w-3/5 h-9 rounded-3xl hover:bg-[#2074e2] w-[20%]"
+              className="bg-transparent text-white bg-[#2280f7] portrait:w-3/5 h-9 rounded-3xl hover:bg-[#2074e2] w-[40%]"
             >
               Solicitar Registro
             </button>

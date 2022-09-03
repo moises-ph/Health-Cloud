@@ -2,23 +2,31 @@ import React, { useContext, useRef } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Nav from "./components/paciente/Nav";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Context, context_login } from "./context/Context";
 import axios from "axios";
 
 function Login() {
+  const navigate = useNavigate();
   const MySwal = withReactContent(Swal);
-
-  const ani = (message) => {
-    MySwal.fire({
-      title: <p>{message}</p>,
-      icon: "error",
-    });
-  };
-
   const { token, setToken } = useContext(context_login);
   const num_documento = useRef();
   const password = useRef();
+
+  const ani = (message, icon) => {
+    MySwal.fire({
+      title: <p>{message}</p>,
+      icon: icon,
+    });
+  };
+
+   const redirection = (event) => {
+    window.setTimeout(() => {
+      navigate("/", { replace: true });
+      window.clearTimeout();
+    }, 1000)
+    
+  }
 
   const saveToken = (savedtoken) => {
     setToken(savedtoken);
@@ -36,23 +44,25 @@ function Login() {
       })
       .then((res) => {
         saveToken(res.data.token);
+        ani("Logeado exitosamente", "success");
+        redirection()
       })
       .catch((err) => {
         switch (err.response.data.msg) {
           case '"num_documento" must be a number':
-            ani("El documento debe ser un numero");
+            ani("El documento debe ser un numero", "error");
             break;
           case '"password" is not allowed to be empty':
-            ani("La contraseña no puede estar vacia");
+            ani("La contraseña no puede estar vacia", "error");
             break;
           case '"password" length must be at least 6 characters long':
-            ani("La contraseña debe tener al menos 6 caracteres");
+            ani("La contraseña debe tener al menos 6 caracteres", "error");
             break;
           case 'User not found':
-            ani('Usuario no registrado');
+            ani('Usuario no registrado', "error");
             break;
           case 'Invalid password':
-            ani('La contraseña es invalida');
+            ani('La contraseña es invalida', "error");
             break;
           default:
             console.log(err);

@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Nav from "./components/paciente/Nav";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context, context_login } from "./context/Context";
 import axios from "axios";
 
@@ -20,7 +20,7 @@ function Login() {
     });
   };
 
-   const redirection = (event) => {
+   const redirection = () => {
     window.setTimeout(() => {
       navigate("/", { replace: true });
       window.clearTimeout();

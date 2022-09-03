@@ -20,11 +20,12 @@ function Login() {
   return (
     <>
       <Nav />
-      <div className="flex justify-center h-screen w-screen bg-[#171941]">
-      <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col h-2/5 w-2/5 bg-[#1f2251] flex flex-col justify-center items-center gap-8 rounded-xl">
+      <div className="flex justify-center h-screen w-full bg-[#171941]">
+      <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col h-2/4 w-2/5 bg-[#1f2251] flex flex-col justify-evenly items-center gap-8 rounded-xl">
+        <h2 className=" text-slate-50 text-3xl">Login</h2>
         <input
           type="text"
-          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md border-slate-700" 
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md transition duration-500 ease-in-out  border-slate-700 focus:border-slate-500" 
           min="3"
           max="10"
           ref={num_documento}
@@ -33,7 +34,7 @@ function Login() {
         />
         <input
           type="password"
-          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md border-slate-700"
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md transition duration-500 ease-in-out  border-slate-700 focus:border-slate-500"
           min="6"
           ref={password}
           required

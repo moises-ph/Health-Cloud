@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/dashboard', verifyToken ,DashboardRouter);
-app.use('/logout', verifyToken, LogoutRouter)
+app.use('/logout', verifyToken, LogoutRouter);
 
 
 // Start the server

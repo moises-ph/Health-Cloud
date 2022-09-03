@@ -81,6 +81,7 @@ function SolicitarRegistro() {
       <Nav />
       <div className="w-[100%] h-[120vh] flex justify-center bg-[#171941] portrait:p-3">
         <div className="portrait:flex portrait:flex-col portrait:items-start bg-[#1f2251] portrait:p-2 portrait:shadow-2xl portrait:rounded-2xl portrait:gap-2 portrait:w-[90%] mt-3 rounded-2xl flex flex-col items-center w-[40%] gap-4 mb-5">
+          <h2 className="mt-11 text-slate-50 text-3xl">Registro</h2>
           <select
             ref={doc_type}
             className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"

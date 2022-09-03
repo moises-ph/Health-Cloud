@@ -1,12 +1,17 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import Nav from './components/paciente/Nav';
 import { NavLink } from "react-router-dom";
-import { Context } from "./context/Context";
+import { Context, context_login } from "./context/Context";
 import axios from "axios";
 
 function Login() {
+  const {token, setToken}= useContext(context_login);
   const num_documento = useRef();
   const password = useRef();
+
+  const saveToken = (savedtoken) => {
+    setToken(savedtoken);
+  }
 
   const logVerify = (e)=>{
     e.preventDefault();
@@ -14,11 +19,14 @@ function Login() {
     let pass = password.current.value;
 
     axios.post('http://localhost:4000/login', {num_documento: num, password: pass})
-      .then((res) => console.log(res)).catch(err => console.log(err));
+      .then((res) => {
+       saveToken(res.data.token);
+      })
+      .catch(err => console.log(err));
   }; 
 
   return (
-    <>
+    <Context>
       <Nav />
       <div className="flex justify-center h-screen w-full bg-[#171941]">
       <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col h-2/4 w-2/5 bg-[#1f2251] flex flex-col justify-evenly items-center gap-8 rounded-xl">
@@ -43,7 +51,7 @@ function Login() {
         <button onClick={logVerify} className="h-[15%] w-[40%] bg-[#2280f7] rounded-3xl text-white hover:bg-[#2074e2]" >realizar</button>
       </form>
       </div>
-    </>
+    </Context>
   );
 }
 

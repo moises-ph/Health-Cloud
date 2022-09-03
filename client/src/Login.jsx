@@ -24,7 +24,7 @@ function Login() {
       <form onSubmit={logVerify} className="mt-6 portrait:flex portrait:flex-col h-2/5 w-2/5 bg-[#1f2251] flex flex-col justify-center items-center gap-8 rounded-xl">
         <input
           type="text"
-          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid border-slate-700 rounded-md"
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md border-slate-700" 
           min="3"
           max="10"
           ref={num_documento}
@@ -33,7 +33,7 @@ function Login() {
         />
         <input
           type="password"
-          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid border-slate-700 rounded-md"
+          className="outline-none h-[15%] w-[80%] bg-transparent text-white border-2 border-solid rounded-md border-slate-700"
           min="6"
           ref={password}
           required

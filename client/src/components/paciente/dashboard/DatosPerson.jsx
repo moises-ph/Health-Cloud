@@ -5,7 +5,7 @@ function DatosPerson() {
     <>
       <h2>Datos Personales</h2>
       <form action="post">
-        <h2 className=" text-xl">Resgitro</h2>
+        <h2 className=" text-xl">Registro</h2>
         <select>
           <option value="">Tipo de documento:</option>
           <option value="C.C">C.C</option>

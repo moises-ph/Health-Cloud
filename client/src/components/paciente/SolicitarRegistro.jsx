@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function SolicitarRegistro() {
   const navigate = useNavigate();
   const MySwal = withReactContent(Swal);
-  const error = useRef();
   const num_documento = useRef();
   const name = useRef();
   const lastname = useRef();
@@ -95,7 +94,6 @@ function SolicitarRegistro() {
       })
       .catch((err) => {
         console.log(err);
-        error.current.innerHTML = "datos ya existentes ";
       });
   };
   return (
@@ -140,15 +138,17 @@ function SolicitarRegistro() {
           <input
             type="text"
             placeholder="Nombres"
-            pattern="[A-Za-z] {15}"
             required
+            pattern="[a-zA-Z]++"
+            maxLength={20}
             ref={name}
             className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
           <input
             type="text"
             placeholder="Apellidos"
-            pattern="[A-Za-z] {15}"
+            pattern="[A-Za-z]++"
+            maxLength={20}
             required
             ref={lastname}
             className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
@@ -223,7 +223,7 @@ function SolicitarRegistro() {
             ref={password}
             className="bg-transparent text-white outline-none rounded-md border-2 border-solid portrait:w-full w-[80%] h-[15%] mt-6 transition duration-500 ease-in-out border-slate-700 focus:border-slate-500"
           />
-          <div ref={error} className="bg-transparent text-white"></div>
+          
           <div className="portrait:w-full portrait:flex portrait:justify-center w-full flex justify-center mb-6">
             <button
               onClick={ValidarRegistro}
